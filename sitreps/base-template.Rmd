@@ -1,5 +1,5 @@
 ---
-title: Population structure of A fumigatus - first pass
+title: Template of MSF situation report
 author: "Amrish Baidjoe, Thibaut Jombart, and the MSF crew"
 date: "2018-04-17"
 output:
