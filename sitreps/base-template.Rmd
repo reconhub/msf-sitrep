@@ -1,0 +1,39 @@
+---
+title: Population structure of A fumigatus - first pass
+author: "Amrish Baidjoe, Thibaut Jombart, and the MSF crew"
+date: "2018-04-17"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+
+
+```{r options, include = FALSE, message = FALSE, warning = FALSE, error = FALSE}
+
+library(knitr)
+opts_chunk$set(collapse = TRUE)
+
+```
+
+
+
+
+# Reading the data
+
+```{r load_pks}
+
+library(readxl)
+library(here)
+
+
+```
+
+```{r load_data}
+
+file <- here("data/xlsx/")
+dim(dat)
+head(dat)
+
+```
