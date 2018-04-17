@@ -13,7 +13,7 @@ output:
 ```{r options, include = FALSE, message = FALSE, warning = FALSE, error = FALSE}
 
 library(knitr)
-opts_chunk$set(collapse = TRUE)
+opts_chunk$set(collapse = TRUE, dev = "png")
 
 ```
 
@@ -22,18 +22,45 @@ opts_chunk$set(collapse = TRUE)
 
 # Reading the data
 
-```{r load_pks}
+```{r load_pkgs}
 
 library(readxl)
 library(here)
-
+library(incidence)
 
 ```
 
+
 ```{r load_data}
 
-file <- here("data/xlsx/")
+file <- here("data/xlsx/fake_ncd_export_final.xlsx")
+dat <- as.data.frame(readxl::read_xlsx(file), stringsAsFactor = FALSE)
+
 dim(dat)
 head(dat)
+
+```
+
+
+We fix the dates and make sure they are stored as `Date` objects:
+
+```{r fix-dates}
+
+for (i in seq_len(ncol(dat))) {
+  if (inherits(dat[, i], "POSIXct")) {
+    dat[, i]  <- as.Date(dat[, i])
+  } 
+}
+
+```
+
+
+
+# Basic epicurve
+
+```{r incidence-curve}
+
+i <- incidence(dat$"Admission date")
+plot(i)
 
 ```
