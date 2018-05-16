@@ -8,8 +8,6 @@ output:
     toc_depth: 2
 ---
 
-
-
 ```{r options, include = FALSE, message = FALSE, warning = FALSE, error = FALSE}
 
 library(knitr)
@@ -17,16 +15,33 @@ opts_chunk$set(collapse = TRUE, dev = "png")
 
 ```
 
+# Installing packages
+```{r install_pkgs}
+#only required for new Rstudio installations
+install.packages("epitrix")
+install.packages("tidyverse")
+install.packages("here")
+install.packages("incidence")
+install.packages("ggplot2")
 
+```
 
-
-# Reading the data
+# Loading packages for session
 
 ```{r load_pkgs}
 
-library(readxl)
+library(tidyverse)
 library(here)
 library(incidence)
+library(ggplot2)
+library(epitrix)
+
+
+```
+
+# Loading data
+
+```
 
 ```
 
